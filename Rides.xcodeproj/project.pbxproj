@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		ECA282282912272000DDFFE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA282272912272000DDFFE9 /* AppDelegate.swift */; };
 		ECA2822A2912272000DDFFE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA282292912272000DDFFE9 /* SceneDelegate.swift */; };
-		ECA2822C2912272000DDFFE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2822B2912272000DDFFE9 /* ViewController.swift */; };
 		ECA2822F2912272000DDFFE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA2822D2912272000DDFFE9 /* Main.storyboard */; };
 		ECA282312912272100DDFFE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA282302912272100DDFFE9 /* Assets.xcassets */; };
 		ECA282342912272100DDFFE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA282322912272100DDFFE9 /* LaunchScreen.storyboard */; };
 		ECA2823F2912272100DDFFE9 /* RidesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2823E2912272100DDFFE9 /* RidesTests.swift */; };
 		ECA282492912272100DDFFE9 /* RidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA282482912272100DDFFE9 /* RidesUITests.swift */; };
 		ECA2824B2912272100DDFFE9 /* RidesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2824A2912272100DDFFE9 /* RidesUITestsLaunchTests.swift */; };
+		ECA2825E291229B400DDFFE9 /* VehicleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2825D291229B400DDFFE9 /* VehicleListViewController.swift */; };
+		ECA28260291229D400DDFFE9 /* VehicleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2825F291229D400DDFFE9 /* VehicleDetailsViewController.swift */; };
+		ECA2826229122A0700DDFFE9 /* VehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826129122A0700DDFFE9 /* VehicleViewModel.swift */; };
+		ECA2826429122C2C00DDFFE9 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826329122C2C00DDFFE9 /* Vehicle.swift */; };
+		ECA28267291230DB00DDFFE9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA28266291230DB00DDFFE9 /* NetworkManager.swift */; };
+		ECA2826B2912312A00DDFFE9 /* VehicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826A2912312A00DDFFE9 /* VehicleListTableViewCell.swift */; };
+		ECA2826D2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826C2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift */; };
+		ECA2826F2912317900DDFFE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826E2912317900DDFFE9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,6 @@
 		ECA282242912272000DDFFE9 /* Rides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA282272912272000DDFFE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECA282292912272000DDFFE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ECA2822B2912272000DDFFE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ECA2822E2912272000DDFFE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECA282302912272100DDFFE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECA282332912272100DDFFE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		ECA282442912272100DDFFE9 /* RidesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA282482912272100DDFFE9 /* RidesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesUITests.swift; sourceTree = "<group>"; };
 		ECA2824A2912272100DDFFE9 /* RidesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ECA2825D291229B400DDFFE9 /* VehicleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListViewController.swift; sourceTree = "<group>"; };
+		ECA2825F291229D400DDFFE9 /* VehicleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsViewController.swift; sourceTree = "<group>"; };
+		ECA2826129122A0700DDFFE9 /* VehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewModel.swift; sourceTree = "<group>"; };
+		ECA2826329122C2C00DDFFE9 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		ECA28266291230DB00DDFFE9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		ECA2826A2912312A00DDFFE9 /* VehicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListTableViewCell.swift; sourceTree = "<group>"; };
+		ECA2826C2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECA2826E2912317900DDFFE9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +113,12 @@
 		ECA282262912272000DDFFE9 /* Rides */ = {
 			isa = PBXGroup;
 			children = (
+				ECA28265291230C000DDFFE9 /* Extensions */,
+				ECA2825C2912298E00DDFFE9 /* Utils */,
+				ECA2825B2912297D00DDFFE9 /* NetworkManager */,
+				ECA282572912290A00DDFFE9 /* Vehicle */,
 				ECA282272912272000DDFFE9 /* AppDelegate.swift */,
 				ECA282292912272000DDFFE9 /* SceneDelegate.swift */,
-				ECA2822B2912272000DDFFE9 /* ViewController.swift */,
 				ECA2822D2912272000DDFFE9 /* Main.storyboard */,
 				ECA282302912272100DDFFE9 /* Assets.xcassets */,
 				ECA282322912272100DDFFE9 /* LaunchScreen.storyboard */,
@@ -125,6 +142,74 @@
 				ECA2824A2912272100DDFFE9 /* RidesUITestsLaunchTests.swift */,
 			);
 			path = RidesUITests;
+			sourceTree = "<group>";
+		};
+		ECA282572912290A00DDFFE9 /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				ECA2825A2912296000DDFFE9 /* Models */,
+				ECA282582912293E00DDFFE9 /* ViewControllers */,
+				ECA282592912295600DDFFE9 /* ViewModels */,
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		ECA282582912293E00DDFFE9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA2825D291229B400DDFFE9 /* VehicleListViewController.swift */,
+				ECA2825F291229D400DDFFE9 /* VehicleDetailsViewController.swift */,
+				ECA282692912310400DDFFE9 /* Cells */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ECA282592912295600DDFFE9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ECA2826129122A0700DDFFE9 /* VehicleViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ECA2825A2912296000DDFFE9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ECA2826329122C2C00DDFFE9 /* Vehicle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ECA2825B2912297D00DDFFE9 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				ECA28266291230DB00DDFFE9 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		ECA2825C2912298E00DDFFE9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ECA2826E2912317900DDFFE9 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ECA28265291230C000DDFFE9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ECA282692912310400DDFFE9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ECA2826A2912312A00DDFFE9 /* VehicleListTableViewCell.swift */,
+				ECA2826C2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +343,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECA2822C2912272000DDFFE9 /* ViewController.swift in Sources */,
+				ECA2826B2912312A00DDFFE9 /* VehicleListTableViewCell.swift in Sources */,
+				ECA2826429122C2C00DDFFE9 /* Vehicle.swift in Sources */,
+				ECA2826229122A0700DDFFE9 /* VehicleViewModel.swift in Sources */,
+				ECA2825E291229B400DDFFE9 /* VehicleListViewController.swift in Sources */,
+				ECA2826D2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift in Sources */,
+				ECA2826F2912317900DDFFE9 /* Constants.swift in Sources */,
+				ECA28267291230DB00DDFFE9 /* NetworkManager.swift in Sources */,
 				ECA282282912272000DDFFE9 /* AppDelegate.swift in Sources */,
+				ECA28260291229D400DDFFE9 /* VehicleDetailsViewController.swift in Sources */,
 				ECA2822A2912272000DDFFE9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +536,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,6 +564,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
