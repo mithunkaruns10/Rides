@@ -29,3 +29,10 @@ struct Vehicle: Codable {
         case licensePlate = "license_plate"
     }
 }
+
+//MARK: - Enum for Sort options
+
+enum SortOption: String {
+    case vin = "VIN"
+    case carType = "Car Type"
+}

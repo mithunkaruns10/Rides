@@ -8,16 +8,33 @@
 import UIKit
 
 class VehicleListTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    /// Vehicle Item for each cell is set from the ViewController
+    var vehicle: Vehicle? {
+        didSet {
+            configure(vehicle: vehicle)
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
+        uiSetup()
     }
-
+    
+    //MARK: - UI Setup
+    private func uiSetup() {
+        textLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+    }
+    
+    //MARK: - Configure Cell
+    private func configure(vehicle: Vehicle?) {
+        textLabel?.text = vehicle?.makeAndModel
+        detailTextLabel?.text = vehicle?.vin
+        accessoryType = .disclosureIndicator
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
