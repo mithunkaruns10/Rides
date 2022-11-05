@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC4C53DE2914CB6800065DC6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C53DD2914CB6800065DC6 /* UIViewExtension.swift */; };
+		EC4C53E02915D9B700065DC6 /* VehicleDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C53DF2915D9B700065DC6 /* VehicleDetailsCell.swift */; };
 		ECA282282912272000DDFFE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA282272912272000DDFFE9 /* AppDelegate.swift */; };
 		ECA2822A2912272000DDFFE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA282292912272000DDFFE9 /* SceneDelegate.swift */; };
 		ECA2822F2912272000DDFFE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA2822D2912272000DDFFE9 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		EC4C53DD2914CB6800065DC6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		EC4C53DF2915D9B700065DC6 /* VehicleDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsCell.swift; sourceTree = "<group>"; };
 		ECA282242912272000DDFFE9 /* Rides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA282272912272000DDFFE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECA282292912272000DDFFE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				ECA2826A2912312A00DDFFE9 /* VehicleListTableViewCell.swift */,
 				ECA2826C2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift */,
+				EC4C53DF2915D9B700065DC6 /* VehicleDetailsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				ECA2826F2912317900DDFFE9 /* Constants.swift in Sources */,
 				ECA28267291230DB00DDFFE9 /* NetworkManager.swift in Sources */,
 				ECA282282912272000DDFFE9 /* AppDelegate.swift in Sources */,
+				EC4C53E02915D9B700065DC6 /* VehicleDetailsCell.swift in Sources */,
 				ECA28260291229D400DDFFE9 /* VehicleDetailsViewController.swift in Sources */,
 				ECA2822A2912272000DDFFE9 /* SceneDelegate.swift in Sources */,
 			);

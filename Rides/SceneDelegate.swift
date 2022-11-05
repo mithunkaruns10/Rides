@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vehicleListVC = VehicleListViewController()
         let navVc = UINavigationController(rootViewController: vehicleListVC)
         window.rootViewController = navVc
-//        navVc.navigationBar.prefersLargeTitles = true
+        navVc.navigationBar.prefersLargeTitles = true
         self.window = window
         window.makeKeyAndVisible()
     }

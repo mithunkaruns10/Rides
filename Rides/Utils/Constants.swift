@@ -19,8 +19,11 @@ struct Constant {
     
     /// Identifiers
     struct Identifier {
+        
+        //Cell Identifiers
         static let vehicleListCellId = "VehicleListTableViewCell"
         static let emissionDetailsCellId = "EmissionDetailsCollectionViewCell"
+        static let vehicleDetailsCellId = "VehicleDetailsCell"
     }
     
 }

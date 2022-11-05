@@ -48,6 +48,7 @@ class VehicleListViewController: UIViewController {
         return tv
     }()
     
+    //MARK: - Other Variables
     var sortOption: SortOption = .vin
     
     //MARK: - ViewController Lifecycle
@@ -73,11 +74,11 @@ class VehicleListViewController: UIViewController {
         })
         
         searchButton.addTarget(self,
-                      action: #selector(handleSearchAction),
-                      for: .touchUpInside)
+                               action: #selector(handleSearchAction),
+                               for: .touchUpInside)
         sortOptionsButton.addTarget(self,
-                      action: #selector(handleSearchAction),
-                      for: .touchUpInside)
+                                    action: #selector(handleSearchAction),
+                                    for: .touchUpInside)
     }
     
     //MARK: - Setup Sort Menu
@@ -94,7 +95,7 @@ class VehicleListViewController: UIViewController {
                                         identifier: .text,
                                         options: [.displayInline],
                                         children: [vin,
-                                                  carType])
+                                                   carType])
     }
     
     //MARK: - UITableView Setup
@@ -174,7 +175,20 @@ class VehicleListViewController: UIViewController {
         
     }
     
-    
+    //MARK: - Navigate to Vehicle Details Screen
+    private func navigateToVehicleDetails() {
+//        guard let vehicle = vehicle else {
+//            print("Vehicle information is missing")
+//            return
+//        }
+        ///Set Collectionview layout
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let vehicleDetailsVC = VehicleDetailsViewController(collectionViewLayout: layout)
+//        vehicleDetailsVC.vehicle = vehicle
+        navigationController?.pushViewController(vehicleDetailsVC,
+                                                 animated: true)
+    }
 }
 
 //MARK: - UITableView delegate and dataSource Methods
@@ -199,7 +213,7 @@ extension VehicleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        navigateToVehicleDetails()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
