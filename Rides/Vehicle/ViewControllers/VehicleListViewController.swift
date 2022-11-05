@@ -72,7 +72,6 @@ class VehicleListViewController: UIViewController {
         
         title = Constant.findVehicles
         view.backgroundColor = .systemBackground
-        inputTextField.delegate = self
         
         [inputTextField,
          sortOptionsButton,
@@ -185,7 +184,17 @@ class VehicleListViewController: UIViewController {
     
     //MARK: - Handle Search Action
     @objc private func handleSearchAction() {
-        let size = Int(inputTextField.text!)!
+        
+        ///Validate input size
+        guard let size = Int(inputTextField.getText() ?? ""),
+              vehicleViewModel.validate(input: size)
+        else {
+            showAlert(title: Constant.invalidInputTitle,
+                      message: Constant.invalidInputMessage)
+            return
+        }
+        
+        ///Fetch vehicles
         fetchVehicles(size: size)
     }
     
@@ -197,9 +206,10 @@ class VehicleListViewController: UIViewController {
         }
         ///Set Collectionview layout
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         let vehicleDetailsVC = VehicleDetailsViewController(collectionViewLayout: layout)
         vehicleDetailsVC.vehicle = vehicle
+        vehicleDetailsVC.estimatedEmission = vehicleViewModel.calculateEstimatedCarbonEmission(kilometrage: vehicle.kilometrage ?? 0)
         navigationController?.pushViewController(vehicleDetailsVC,
                                                  animated: true)
     }
@@ -257,9 +267,4 @@ extension VehicleListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         String(format: Constant.vehicles, sortOption.rawValue)
     }
-}
-
-//MARK: - UITextfield delegate methods
-extension VehicleListViewController: UITextFieldDelegate {
-    
 }

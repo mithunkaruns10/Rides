@@ -16,6 +16,8 @@ struct Constant {
     static let carType = "Car Type"
     static let VIN = "VIN"
     static let sortBy = "Sort By"
+    static let emissionDetails = "Emissoion Details"
+    static let estimatedCarbonEmission = "Estimated Carbon Emission"
     
     /// Identifiers
     struct Identifier {
@@ -29,6 +31,8 @@ struct Constant {
     ///Error Messages
     static let InvalidUrl = "Invalid URL"
     static let unknownError = "Unknown error"
+    static let invalidInputTitle = "Invalid input"
+    static let invalidInputMessage = "Please enter a value between 1 and 100"
     
 }
 

@@ -11,6 +11,7 @@ class VehicleDetailsViewController: UICollectionViewController {
     
     //MARK: - Variables
     var vehicle: Vehicle?
+    var estimatedEmission: String?
     var numberOfSections = 1
     var numberOfRows = 2
     
@@ -30,13 +31,12 @@ class VehicleDetailsViewController: UICollectionViewController {
     private func uiSetup() {
         title = vehicle?.makeAndModel
         navigationController?.navigationBar.prefersLargeTitles = true
-        edgesForExtendedLayout = .bottom
     }
     
     //MARK: - UICollectionView Setup
     private func collectionViewSetup() {
         collectionView.isPagingEnabled = true
-        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         
         collectionView.register(VehicleDetailsCell.self,
                                 forCellWithReuseIdentifier: Constant.Identifier.vehicleDetailsCellId)
@@ -63,7 +63,12 @@ extension VehicleDetailsViewController: UICollectionViewDelegateFlowLayout {
                                                            for: indexPath) as? VehicleDetailsCell else {
            return UICollectionViewCell()
        }
-        cell.vehicle = vehicle
+        if indexPath.row == 0 {
+            cell.vehicle = vehicle
+        } else {
+            cell.configureEmissionCell(emisson: estimatedEmission)
+        }
+        
         return cell
     }
     

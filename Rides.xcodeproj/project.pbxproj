@@ -10,6 +10,8 @@
 		EC4C53DE2914CB6800065DC6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C53DD2914CB6800065DC6 /* UIViewExtension.swift */; };
 		EC4C53E02915D9B700065DC6 /* VehicleDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C53DF2915D9B700065DC6 /* VehicleDetailsCell.swift */; };
 		EC4C53E22916076F00065DC6 /* URLEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C53E12916076F00065DC6 /* URLEndPoint.swift */; };
+		EC4C53E42916B9D900065DC6 /* UITextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C53E32916B9D800065DC6 /* UITextfieldExtension.swift */; };
+		EC4C53E82916BC6700065DC6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C53E72916BC6700065DC6 /* UIViewControllerExtension.swift */; };
 		ECA282282912272000DDFFE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA282272912272000DDFFE9 /* AppDelegate.swift */; };
 		ECA2822A2912272000DDFFE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA282292912272000DDFFE9 /* SceneDelegate.swift */; };
 		ECA2822F2912272000DDFFE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA2822D2912272000DDFFE9 /* Main.storyboard */; };
@@ -24,7 +26,6 @@
 		ECA2826429122C2C00DDFFE9 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826329122C2C00DDFFE9 /* Vehicle.swift */; };
 		ECA28267291230DB00DDFFE9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA28266291230DB00DDFFE9 /* NetworkManager.swift */; };
 		ECA2826B2912312A00DDFFE9 /* VehicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826A2912312A00DDFFE9 /* VehicleListTableViewCell.swift */; };
-		ECA2826D2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826C2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift */; };
 		ECA2826F2912317900DDFFE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2826E2912317900DDFFE9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		EC4C53DD2914CB6800065DC6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		EC4C53DF2915D9B700065DC6 /* VehicleDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsCell.swift; sourceTree = "<group>"; };
 		EC4C53E12916076F00065DC6 /* URLEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEndPoint.swift; sourceTree = "<group>"; };
+		EC4C53E32916B9D800065DC6 /* UITextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldExtension.swift; sourceTree = "<group>"; };
+		EC4C53E72916BC6700065DC6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		ECA282242912272000DDFFE9 /* Rides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA282272912272000DDFFE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECA282292912272000DDFFE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +70,6 @@
 		ECA2826329122C2C00DDFFE9 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		ECA28266291230DB00DDFFE9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ECA2826A2912312A00DDFFE9 /* VehicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListTableViewCell.swift; sourceTree = "<group>"; };
-		ECA2826C2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECA2826E2912317900DDFFE9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				EC4C53DD2914CB6800065DC6 /* UIViewExtension.swift */,
+				EC4C53E32916B9D800065DC6 /* UITextfieldExtension.swift */,
+				EC4C53E72916BC6700065DC6 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				ECA2826A2912312A00DDFFE9 /* VehicleListTableViewCell.swift */,
-				ECA2826C2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift */,
 				EC4C53DF2915D9B700065DC6 /* VehicleDetailsCell.swift */,
 			);
 			path = Cells;
@@ -354,15 +357,16 @@
 			files = (
 				ECA2826B2912312A00DDFFE9 /* VehicleListTableViewCell.swift in Sources */,
 				ECA2826429122C2C00DDFFE9 /* Vehicle.swift in Sources */,
+				EC4C53E82916BC6700065DC6 /* UIViewControllerExtension.swift in Sources */,
 				EC4C53DE2914CB6800065DC6 /* UIViewExtension.swift in Sources */,
 				ECA2826229122A0700DDFFE9 /* VehicleViewModel.swift in Sources */,
 				ECA2825E291229B400DDFFE9 /* VehicleListViewController.swift in Sources */,
-				ECA2826D2912316200DDFFE9 /* EmissionDetailsCollectionViewCell.swift in Sources */,
 				ECA2826F2912317900DDFFE9 /* Constants.swift in Sources */,
 				ECA28267291230DB00DDFFE9 /* NetworkManager.swift in Sources */,
 				ECA282282912272000DDFFE9 /* AppDelegate.swift in Sources */,
 				EC4C53E02915D9B700065DC6 /* VehicleDetailsCell.swift in Sources */,
 				EC4C53E22916076F00065DC6 /* URLEndPoint.swift in Sources */,
+				EC4C53E42916B9D900065DC6 /* UITextfieldExtension.swift in Sources */,
 				ECA28260291229D400DDFFE9 /* VehicleDetailsViewController.swift in Sources */,
 				ECA2822A2912272000DDFFE9 /* SceneDelegate.swift in Sources */,
 			);

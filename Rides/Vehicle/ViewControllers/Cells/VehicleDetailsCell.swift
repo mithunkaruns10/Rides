@@ -69,7 +69,7 @@ class VehicleDetailsCell: UICollectionViewCell {
     let dragButton:  UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .systemBlue
-        btn.setImage(UIImage(systemName: "chevron.down"),
+        btn.setImage(UIImage(systemName: "chevron.right"),
                      for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.tintColor = .white
@@ -77,7 +77,6 @@ class VehicleDetailsCell: UICollectionViewCell {
     }()
     
     //MARK: - Variables
-    var dragButtonAction: (() -> Void)?
     var vehicle: Vehicle? {
         didSet {
             configure(vehicle: vehicle)
@@ -101,9 +100,6 @@ class VehicleDetailsCell: UICollectionViewCell {
                                 cornerRadius: 12)
         containerView.backgroundColor = .opaqueSeparator.withAlphaComponent(0.5)
         
-        dragButton.addTarget(self,
-                             action: #selector(handleDragDownAction),
-                             for: .touchUpInside)
         dragButton.animate()
     }
     
@@ -195,9 +191,9 @@ class VehicleDetailsCell: UICollectionViewCell {
             
             dragButton.widthAnchor.constraint(equalToConstant: 40),
             dragButton.heightAnchor.constraint(equalToConstant: 40),
-            dragButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
+            dragButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor,
                                                constant: 16),
-            dragButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            dragButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
             
         ])
     }
@@ -211,9 +207,17 @@ class VehicleDetailsCell: UICollectionViewCell {
         colorButton.color(name: vehicleColor)
     }
     
-    //MARK: - Drag down button actin
-    @objc private func handleDragDownAction() {
-        dragButtonAction?()
+    //MARK: - Configure EmissionCell
+    func configureEmissionCell(emisson: String?) {
+        colorLabel.text = Constant.estimatedCarbonEmission
+        vehicleMakeAndModelLabel.text = Constant.emissionDetails
+        vinLabel.text = (emisson ?? "--") + " Unit"
+        colorButton.isHidden = true
+        dragButton.isHidden = true
+        [colorLabel,
+         vehicleMakeAndModelLabel,
+         vinLabel
+        ].forEach({ $0.textAlignment = .center})
     }
     
     required init?(coder: NSCoder) {
