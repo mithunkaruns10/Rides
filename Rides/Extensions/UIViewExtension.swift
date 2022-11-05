@@ -36,5 +36,34 @@ extension UIView {
         }
     }
     
-
+    ///Render color from color name
+    func color(name: Color) {
+        var selectedColor: UIColor = .systemBlue
+        switch name {
+        case .white:
+            selectedColor = .white
+        case .black:
+            selectedColor = .black
+        case .grey:
+            selectedColor = .gray
+        case .violet:
+            selectedColor = .systemCyan
+        case .indigo:
+            selectedColor = .purple
+        case .blue:
+            selectedColor = .systemBlue
+        case .green:
+            selectedColor = .systemGreen
+        case .yellow:
+            selectedColor = .systemYellow
+        case .orange:
+            selectedColor = .systemOrange
+        case .red:
+            selectedColor = .systemRed
+        case .beige:
+            selectedColor = .systemMint
+        }
+        
+        backgroundColor = selectedColor
+    }
 }

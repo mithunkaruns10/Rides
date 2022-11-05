@@ -31,3 +31,18 @@ struct Constant {
     static let unknownError = "Unknown error"
     
 }
+
+//MARK: - Color Enum
+enum Color: String {
+    case white = "White"
+    case black = "Black"
+    case grey = "Grey"
+    case violet = "Violet"
+    case indigo = "Indigo"
+    case blue = "Blue"
+    case green = "Green"
+    case yellow = "Yellow"
+    case orange = "Orange"
+    case red = "Red"
+    case beige = "Beige"
+}

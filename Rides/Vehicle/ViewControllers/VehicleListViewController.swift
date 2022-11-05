@@ -14,6 +14,7 @@ class VehicleListViewController: UIViewController {
         let txtField = UITextField()
         txtField.translatesAutoresizingMaskIntoConstraints = false
         txtField.placeholder = "Enter number of vehicles"
+        txtField.keyboardType = .numberPad
         return txtField
     }()
     
@@ -49,6 +50,8 @@ class VehicleListViewController: UIViewController {
     }()
     
     //MARK: - Other Variables
+    var carTypeMenuAction: UIAction!
+    var vinMenuAction: UIAction!
     var sortOption: SortOption = .vin
     var vehicleViewModel = VehicleViewModel(networkManager: NetworkManager.sharedManager)
     var vehicles: [Vehicle] = []
@@ -69,6 +72,8 @@ class VehicleListViewController: UIViewController {
         
         title = Constant.findVehicles
         view.backgroundColor = .systemBackground
+        inputTextField.delegate = self
+        
         [inputTextField,
          sortOptionsButton,
          searchButton].forEach({
@@ -82,23 +87,33 @@ class VehicleListViewController: UIViewController {
         sortOptionsButton.addTarget(self,
                                     action: #selector(handleSearchAction),
                                     for: .touchUpInside)
+        sortOption = .vin
     }
     
     //MARK: - Setup Sort Menu
     private func sortMenuSetup() {
-        let carType = UIAction(title: Constant.carType, state: .off) { [weak self] _ in
+                
+        carTypeMenuAction = UIAction(title: Constant.carType) { [weak self] _ in
             
+            guard let self = self else { return }
+            self.sortOption = .carType
+            self.vehicles = self.vehicles.sorted(by: { $0.carType < $1.carType})
+            self.refresh()
         }
-        let vin = UIAction(title: Constant.VIN, state: .on) { [weak self] _ in
+        vinMenuAction = UIAction(title: Constant.VIN) { [weak self] _ in
             
+            guard let self = self else { return }
+            self.sortOption = .vin
+            self.vehicles = self.vehicles.sorted(by: { $0.vin < $1.vin})
+            self.refresh()
         }
         
         sortOptionsButton.showsMenuAsPrimaryAction = true
         sortOptionsButton.menu = UIMenu(title: Constant.sortBy,
                                         identifier: .text,
                                         options: [.displayInline],
-                                        children: [vin,
-                                                   carType])
+                                        children: [vinMenuAction,
+                                                   carTypeMenuAction])
     }
     
     //MARK: - UITableView Setup
@@ -170,12 +185,8 @@ class VehicleListViewController: UIViewController {
     
     //MARK: - Handle Search Action
     @objc private func handleSearchAction() {
-        
-    }
-    
-    //MARK: - Handle Sort Action
-    @objc private func handleSortAction() {
-        
+        let size = Int(inputTextField.text!)!
+        fetchVehicles(size: size)
     }
     
     //MARK: - Navigate to Vehicle Details Screen
@@ -211,6 +222,10 @@ class VehicleListViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    //MARK: - Reload
+    private func refresh() {
+        tableView.reloadData()
+    }
 }
 
 //MARK: - UITableView delegate and dataSource Methods
@@ -242,4 +257,9 @@ extension VehicleListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         String(format: Constant.vehicles, sortOption.rawValue)
     }
+}
+
+//MARK: - UITextfield delegate methods
+extension VehicleListViewController: UITextFieldDelegate {
+    
 }

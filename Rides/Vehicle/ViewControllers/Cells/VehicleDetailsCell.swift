@@ -207,7 +207,8 @@ class VehicleDetailsCell: UICollectionViewCell {
         colorLabel.text = vehicle?.color
         vehicleMakeAndModelLabel.text = vehicle?.carType
         vinLabel.text = vehicle?.vin
-        colorButton.backgroundColor = UIColor(named: vehicle?.color?.lowercased() ?? "blue")
+        let vehicleColor =  Color(rawValue: vehicle?.color ?? "default") ?? .grey
+        colorButton.color(name: vehicleColor)
     }
     
     //MARK: - Drag down button actin
