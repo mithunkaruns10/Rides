@@ -30,7 +30,7 @@ class VehicleDetailsCell: UICollectionViewCell {
       let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.textColor = .systemGray
-        lbl.text = "VINGAFJJKSLS"
+        lbl.text = "--"
         lbl.font = UIFont.systemFont(ofSize: 15,
                                      weight: .bold)
         lbl.numberOfLines = 0
@@ -41,7 +41,7 @@ class VehicleDetailsCell: UICollectionViewCell {
       let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.textColor = .label
-        lbl.text = "Sedan 4DR Touring"
+        lbl.text = "--"
         lbl.font = UIFont.systemFont(ofSize: 20,
                                      weight: .semibold)
         lbl.numberOfLines = 0
@@ -52,7 +52,7 @@ class VehicleDetailsCell: UICollectionViewCell {
       let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.textColor = .label
-        lbl.text = "Blue"
+        lbl.text = "--"
         lbl.font = UIFont.systemFont(ofSize: 17,
                                      weight: .medium)
         lbl.numberOfLines = 0
@@ -78,7 +78,11 @@ class VehicleDetailsCell: UICollectionViewCell {
     
     //MARK: - Variables
     var dragButtonAction: (() -> Void)?
-    
+    var vehicle: Vehicle? {
+        didSet {
+            configure(vehicle: vehicle)
+        }
+    }
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -196,6 +200,14 @@ class VehicleDetailsCell: UICollectionViewCell {
             dragButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
             
         ])
+    }
+    
+    //MARK: - Configure Cell
+    private func configure(vehicle: Vehicle?) {
+        colorLabel.text = vehicle?.color
+        vehicleMakeAndModelLabel.text = vehicle?.carType
+        vinLabel.text = vehicle?.vin
+        colorButton.backgroundColor = UIColor(named: vehicle?.color?.lowercased() ?? "blue")
     }
     
     //MARK: - Drag down button actin

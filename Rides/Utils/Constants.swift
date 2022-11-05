@@ -26,4 +26,8 @@ struct Constant {
         static let vehicleDetailsCellId = "VehicleDetailsCell"
     }
     
+    ///Error Messages
+    static let InvalidUrl = "Invalid URL"
+    static let unknownError = "Unknown error"
+    
 }

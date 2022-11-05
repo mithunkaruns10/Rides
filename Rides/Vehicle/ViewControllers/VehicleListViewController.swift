@@ -50,6 +50,8 @@ class VehicleListViewController: UIViewController {
     
     //MARK: - Other Variables
     var sortOption: SortOption = .vin
+    var vehicleViewModel = VehicleViewModel(networkManager: NetworkManager.sharedManager)
+    var vehicles: [Vehicle] = []
     
     //MARK: - ViewController Lifecycle
     override func viewDidLoad() {
@@ -59,6 +61,7 @@ class VehicleListViewController: UIViewController {
         layoutUIElements()
         tableViewSetup()
         sortMenuSetup()
+        fetchVehicles()
     }
     
     //MARK: - Setup UI
@@ -176,18 +179,37 @@ class VehicleListViewController: UIViewController {
     }
     
     //MARK: - Navigate to Vehicle Details Screen
-    private func navigateToVehicleDetails() {
-//        guard let vehicle = vehicle else {
-//            print("Vehicle information is missing")
-//            return
-//        }
+    private func navigateToVehicleDetails(vehicle:Vehicle?) {
+        guard let vehicle = vehicle else {
+            print("Vehicle information is missing")
+            return
+        }
         ///Set Collectionview layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let vehicleDetailsVC = VehicleDetailsViewController(collectionViewLayout: layout)
-//        vehicleDetailsVC.vehicle = vehicle
+        vehicleDetailsVC.vehicle = vehicle
         navigationController?.pushViewController(vehicleDetailsVC,
                                                  animated: true)
+    }
+    
+    //MARK: - Fetch Vehicles
+    private func fetchVehicles(size: Int = 10) {
+        ///Construct url
+        let url = String(format: URLEndPoint.vehicles, size)
+        vehicleViewModel.getVehicles(url) { [weak self] vehicles, error in
+            
+            ///Handle API error
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+            }
+            
+            ///Update dataSource from Vehicle array
+            guard let self = self,
+                  let vehicles =  vehicles else { return }
+            self.vehicles = vehicles
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -199,21 +221,22 @@ extension VehicleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return vehicles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.vehicleListCellId,
                                                        for: indexPath) as? VehicleListTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.vehicle = Vehicle(id: 1, uid: "ww", vin: "qaxasxasx", makeAndModel: "Audi Q3", color: "blue", transmission: "ddd", driveType: "dd", fuelType: "", carType: "", carOptions: [""], specs: [], doors: 2, mileage: 2, kilometrage: 2, licensePlate: "JDHSJSKJ")
+        cell.vehicle = vehicles[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigateToVehicleDetails()
+        navigateToVehicleDetails(vehicle: vehicles[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

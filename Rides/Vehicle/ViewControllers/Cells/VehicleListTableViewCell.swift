@@ -23,7 +23,8 @@ class VehicleListTableViewCell: UITableViewCell {
     
     //MARK: - UI Setup
     private func uiSetup() {
-        textLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        textLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        detailTextLabel?.font = .systemFont(ofSize: 12, weight: .bold)
     }
     
     //MARK: - Configure Cell

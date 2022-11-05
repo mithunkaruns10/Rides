@@ -28,7 +28,7 @@ class VehicleDetailsViewController: UICollectionViewController {
     
     //MARK: - Setup UI
     private func uiSetup() {
-        title = "Honda Accord"
+        title = vehicle?.makeAndModel
         navigationController?.navigationBar.prefersLargeTitles = true
         edgesForExtendedLayout = .bottom
     }
@@ -63,7 +63,7 @@ extension VehicleDetailsViewController: UICollectionViewDelegateFlowLayout {
                                                            for: indexPath) as? VehicleDetailsCell else {
            return UICollectionViewCell()
        }
-//        cell.backgroundColor = .red
+        cell.vehicle = vehicle
         return cell
     }
     
