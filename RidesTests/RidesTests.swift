@@ -10,22 +10,63 @@ import XCTest
 
 class RidesTests: XCTestCase {
 
+    var vehicleViewModel: VehicleViewModel!
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        vehicleViewModel = VehicleViewModel(networkManager: NetworkManager.sharedManager)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        vehicleViewModel = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    //MARK: - Test for Inputfield validation
+    func testValidateInputTextFieldValue() throws {
+        
+        ///Suceess input cases
+        let validMinValue = 1
+        let validMaxValue = 100
+        let validRandomValue = 26
+        
+        let testOne = vehicleViewModel.validate(input: validMinValue)
+        let testTwo = vehicleViewModel.validate(input: validMaxValue)
+        let testThree = vehicleViewModel.validate(input: validRandomValue)
+        
+        XCTAssertTrue(testOne)
+        XCTAssertTrue(testTwo)
+        XCTAssertTrue(testThree)
+        
+        ///Failure input cases
+        let valueBelowMinValue = 0
+        let valueAboveMaxValue = 150
+        
+        let testFour = vehicleViewModel.validate(input: valueBelowMinValue)
+        let testFive = vehicleViewModel.validate(input: valueAboveMaxValue)
+        let testSix = vehicleViewModel.validate(input: nil)
+        
+        XCTAssertFalse(testFour)
+        XCTAssertFalse(testFive)
+        XCTAssertFalse(testSix)
     }
+    
+    //MARK: - Test for Emission calculation
+    func testCalculateEstimatedCarbonEmission() throws {
+        
+        ///Expected emission calculation for kilometrage till 5000
+        let expectedEmissionTillThreshold = String(5000)
+        
+        ///Expected emission calculation for kilometrage beyond 5000
+        let expectedEmissionBeyondThreshold = String(5000 + Int(1000 * 1.5))
+        
+        ///Calculations
+        let emissionTillThreshold = vehicleViewModel.calculateEstimatedCarbonEmission(kilometrage: 5000)
+        let emissionBeyondThreshold = vehicleViewModel.calculateEstimatedCarbonEmission(kilometrage: 6000)
+        
+        XCTAssertEqual(emissionTillThreshold,
+                       expectedEmissionTillThreshold)
+        XCTAssertEqual(expectedEmissionBeyondThreshold,
+                       emissionBeyondThreshold)
 
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
