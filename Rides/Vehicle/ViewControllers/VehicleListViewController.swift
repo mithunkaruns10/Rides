@@ -49,6 +49,8 @@ class VehicleListViewController: UIViewController {
         return tv
     }()
     
+    let spinner = UIActivityIndicatorView(style: .medium)
+    
     //MARK: - Other Variables
     var carTypeMenuAction: UIAction!
     var vinMenuAction: UIAction!
@@ -142,8 +144,13 @@ class VehicleListViewController: UIViewController {
         topStackView.spacing = 8
         
         [topStackView,
-         tableView
+         tableView,
+         spinner
         ].forEach({ view.addSubview($0)})
+        
+        view.bringSubviewToFront(spinner)
+        spinner.center = view.center
+        spinner.hidesWhenStopped = true
         
         NSLayoutConstraint.activate([
             topStackView.leadingAnchor.constraint(
@@ -194,6 +201,7 @@ class VehicleListViewController: UIViewController {
             return
         }
         
+        view.endEditing(true)
         ///Fetch vehicles
         fetchVehicles(size: size)
     }
@@ -216,20 +224,25 @@ class VehicleListViewController: UIViewController {
     
     //MARK: - Fetch Vehicles
     private func fetchVehicles(size: Int = 10) {
+        
+        spinner.startAnimating()
         ///Construct url
         let url = String(format: URLEndPoint.vehicles, size)
         vehicleViewModel.getVehicles(url) { [weak self] vehicles, error in
             
+            self?.spinner.stopAnimating()
+            
             ///Handle API error
             if error != nil {
                 print(error?.localizedDescription ?? "")
+                return
             }
             
             ///Update dataSource from Vehicle array
             guard let self = self,
                   let vehicles =  vehicles else { return }
             self.vehicles = vehicles
-            self.tableView.reloadData()
+            self.refresh()
         }
     }
     //MARK: - Reload

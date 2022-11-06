@@ -202,7 +202,7 @@ class VehicleDetailsCell: UICollectionViewCell {
     private func configure(vehicle: Vehicle?) {
         colorLabel.text = vehicle?.color
         vehicleMakeAndModelLabel.text = vehicle?.carType
-        vinLabel.text = vehicle?.vin
+        vinLabel.text = "VIN: " + (vehicle?.vin ?? "--")
         let vehicleColor =  Color(rawValue: vehicle?.color ?? "default") ?? .grey
         colorButton.color(name: vehicleColor)
     }
